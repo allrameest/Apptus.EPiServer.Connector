@@ -19,7 +19,7 @@ In order to build the Apptus EPiServer Connector, please follow these steps:
 
 Clone the repo:
 
-    git clone https://github.com/Apptus/eSales.EPiServer.git
+    git clone https://github.com/Apptus/Apptus.EPiServer.Connector.git
 
 Copy the eSales .NET connector to (solution dir)\lib. The connector can be found in the eSales bundle.
 
