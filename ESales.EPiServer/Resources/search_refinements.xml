@@ -1,0 +1,8 @@
+<search_refinements>
+        <strict>
+            <tokenization name="Text (words)"></tokenization>
+        </strict>
+        <loose>
+            <tokenization name="Text (word stems)"></tokenization>
+        </loose>
+    </search_refinements>

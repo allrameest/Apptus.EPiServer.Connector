@@ -1,0 +1,1418 @@
+<tokenizations>
+        <tokenization name="(no refinement)">
+            <product>
+                <default>
+                    <rules></rules>
+                </default>
+            </product>
+            <query>
+                <default>
+                    <rules></rules>
+                </default>
+            </query>
+        </tokenization>
+        <tokenization name="Case insensitive">
+            <product>
+                <default>
+                    <rules>
+                        <rule priority="1">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </default>
+            </product>
+            <query>
+                <default>
+                    <rules>
+                        <rule priority="1">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </default>
+            </query>
+        </tokenization>
+        <tokenization name="Model designation (e.g. MB12a)">
+            <product>
+                <default>
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                            <definition> </definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                    </rules>
+                </default>
+            </product>
+            <query>
+                <default>
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                            <definition> </definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                    </rules>
+                </default>
+            </query>
+        </tokenization>
+        <tokenization name="Text (words)">
+            <product>
+                <default>
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.UnicodeRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </default>
+                <localized locale="en_GB">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="en_US">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="de_DE">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="fi_FI">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="da_DK">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="sv_SE">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="fr_FR">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="no_NO">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+            </product>
+            <query>
+                <default>
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.UnicodeRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </default>
+                <localized locale="en_GB">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="en_US">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="de_DE">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="fi_FI">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="da_DK">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="sv_SE">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="fr_FR">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="no_NO">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+            </query>
+        </tokenization>
+        <tokenization name="Text (word stems)">
+            <product>
+                <default>
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.UnicodeRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="8">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </default>
+                <localized locale="en_GB">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="8">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="en_US">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="8">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="de_DE">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="8">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="fi_FI">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="8">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="da_DK">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="8">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="sv_SE">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="8">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="fr_FR">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="8">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="no_NO">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.ComponentRule</class>
+                            <definition>./-·</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.CamelCaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="7">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="8">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+            </product>
+            <query>
+                <default>
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.UnicodeRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </default>
+                <localized locale="en_GB">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="en_US">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="de_DE">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="fi_FI">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="da_DK">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="sv_SE">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="fr_FR">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+                <localized locale="no_NO">
+                    <rules>
+                        <rule priority="1">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.LatinRule</class>
+                            <definition>+#·</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.letter.LetterRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="3">
+                            <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.RegexRule</class>
+                            <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
+                        </rule>
+                        <rule priority="4">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
+                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                        </rule>
+                        <rule priority="5">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.LowercaseRule</class>
+                            <definition></definition>
+                        </rule>
+                        <rule priority="6">
+                            <type>string rule</type>
+                            <class>com.apptus.esales.text.string.StemRule</class>
+                            <definition></definition>
+                        </rule>
+                    </rules>
+                </localized>
+            </query>
+        </tokenization>
+    </tokenizations>

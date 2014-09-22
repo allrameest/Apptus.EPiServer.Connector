@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="configuration">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" ref="attributes"/>
+                <xs:element minOccurs="0" maxOccurs="1" ref="product_attributes"/>
+                <xs:element minOccurs="0" maxOccurs="1" ref="ad_attributes"/>
+                <xs:element minOccurs="0" maxOccurs="1" ref="search_refinements"/>
+                <xs:element minOccurs="0" maxOccurs="1" ref="formats"/>
+                <xs:element minOccurs="0" maxOccurs="1" ref="tokenizations"/>
+                <xs:element minOccurs="0" maxOccurs="1" ref="normalizations"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="attributes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="attribute"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="product_attributes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="attribute"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ad_attributes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="attribute"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="attribute">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" ref="filter_attributes"/>
+                <xs:element minOccurs="0" maxOccurs="1" ref="search_attributes"/>
+                <xs:element minOccurs="0" maxOccurs="1" ref="sort_attributes"/>
+                <xs:element minOccurs="0" maxOccurs="1" ref="present"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="filter_attributes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="filter_attribute"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="filter_attribute">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="format"/>
+                <xs:element ref="tokenization"/>
+                <xs:element ref="type"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="search_attributes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="search_attribute"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="search_attribute">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="format"/>
+                <xs:element ref="match_suffix"/>
+                <xs:element ref="suggest"/>
+                <xs:element minOccurs="0" maxOccurs="1" ref="locale"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="sort_attributes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="sort_attribute"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="sort_attribute">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="normalization"/>
+                <xs:element ref="type"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="present">
+        <xs:complexType>
+            <xs:attribute name="xml" use="optional" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="suggest" type="xs:boolean"/>
+
+    <xs:element name="match_suffix" type="xs:boolean"/>
+
+    <xs:element name="search_refinements">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="strict">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="tokenization"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="loose">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="tokenization"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="formats">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="format"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="tokenizations">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="tokenization"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="normalizations">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="normalization"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="format">
+        <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="1">
+                <xs:element ref="rules"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="tokenization">
+        <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="1">
+                <xs:element name="product">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="default"/>
+                            <xs:element minOccurs="0" maxOccurs="unbounded" ref="localized"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="query">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="default"/>
+                            <xs:element minOccurs="0" maxOccurs="unbounded" ref="localized"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="normalization">
+        <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="1">
+                <xs:element ref="default"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="localized"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="rules">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="rule"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="rule">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="type" type="xs:string"/>
+                <xs:element ref="class"/>
+                <xs:element ref="definition"/>
+            </xs:sequence>
+            <xs:attribute name="priority" use="required" type="xs:int"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="type">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="boolean"/>
+                <xs:enumeration value="byte"/>
+                <xs:enumeration value="short"/>
+                <xs:enumeration value="int"/>
+                <xs:enumeration value="long"/>
+                <xs:enumeration value="float"/>
+                <xs:enumeration value="double"/>
+                <xs:enumeration value="string"/>
+                <xs:enumeration value="xml"/>
+                <xs:enumeration value="time point"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:element name="locale" type="xs:string"/>
+
+    <xs:element name="class" type="xs:string"/>
+
+    <xs:element name="definition" type="xs:string"/>
+
+    <xs:element name="default">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="rules"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="localized">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="rules"/>
+            </xs:sequence>
+            <xs:attribute name="locale" use="required" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

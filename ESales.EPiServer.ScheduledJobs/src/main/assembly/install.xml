@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<assembly>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <baseDirectory>bundle</baseDirectory>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <dependencySets>
+    <dependencySet>
+      <outputDirectory>/</outputDirectory>
+      <unpack>true</unpack>
+      <includes>
+        <include>Apptus.Esales.ConnectorApi*</include>
+      </includes>
+    </dependencySet>
+  </dependencySets>
+</assembly>

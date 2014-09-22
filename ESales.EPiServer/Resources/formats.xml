@@ -1,0 +1,69 @@
+<formats>
+        <format name="(no format)">
+            <rules></rules>
+        </format>
+        <format name="Comma-separated list (e.g. a,b,c)">
+            <rules>
+                <rule priority="1">
+                    <type>scan rule</type>
+                    <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                    <definition>,</definition>
+                </rule>
+            </rules>
+        </format>
+        <format name="Pipe-separated list (e.g. a|b|c)">
+            <rules>
+                <rule priority="1">
+                    <type>scan rule</type>
+                    <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                    <definition>|</definition>
+                </rule>
+            </rules>
+        </format>
+        <format name="HTML">
+            <rules>
+                <rule priority="1">
+                    <type>scan rule</type>
+                    <class>com.apptus.esales.text.scan.HtmlTextRule</class>
+                    <definition></definition>
+                </rule>
+            </rules>
+        </format>
+        <format name="Path (e.g. /a/b/c)">
+            <rules>
+                <rule priority="1">
+                    <type>scan rule</type>
+                    <class>com.apptus.esales.text.scan.PathRule</class>
+                    <definition></definition>
+                </rule>
+            </rules>
+        </format>
+        <format name="Pipe-separated list of paths (e.g. /a/b|/e/f)">
+            <rules>
+                <rule priority="1">
+                    <type>scan rule</type>
+                    <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                    <definition>|</definition>
+                </rule>
+                <rule priority="2">
+                    <type>scan rule</type>
+                    <class>com.apptus.esales.text.scan.PathRule</class>
+                    <definition></definition>
+                </rule>
+            </rules>
+        </format>
+        <format name="Comma-separated list of paths (e.g. /a/b,/e/f)">
+            <rules>
+                <rule priority="1">
+                    <type>scan rule</type>
+                    <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                    <definition>,</definition>
+                </rule>
+                <rule priority="2">
+                    <type>scan rule</type>
+                    <class>com.apptus.esales.text.scan.PathRule</class>
+                    <definition></definition>
+                </rule>
+            </rules>
+        </format>
+    </formats>

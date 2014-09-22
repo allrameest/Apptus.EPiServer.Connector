@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <ad_attributes>
+        <attribute name="campaign_name">
+            <filter_attributes>
+                <filter_attribute name="campaign_name">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="Text (words)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="campaign_name">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="campaign_name">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="campaign_created">
+            <filter_attributes>
+                <filter_attribute name="campaign_created">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>long</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="campaign_created">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="campaign_created">
+                    <normalization name="Case insensitive"/>
+                    <type>long</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="campaign_exported">
+            <filter_attributes>
+                <filter_attribute name="campaign_exported">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>long</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="campaign_exported">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="campaign_exported">
+                    <normalization name="Case insensitive"/>
+                    <type>long</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="campaign_modified">
+            <filter_attributes>
+                <filter_attribute name="campaign_modified">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>long</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="campaign_modified">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="campaign_modified">
+                    <normalization name="Case insensitive"/>
+                    <type>long</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="campaign_modified_by">
+            <filter_attributes>
+                <filter_attribute name="campaign_modified_by">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="campaign_modified_by">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="campaign_modified_by">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="campaign_is_active">
+            <filter_attributes>
+                <filter_attribute name="campaign_is_active">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="campaign_is_active">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="campaign_is_active">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="campaign_is_archived">
+            <filter_attributes>
+                <filter_attribute name="campaign_is_archived">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="campaign_is_archived">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="campaign_is_archived">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="campaign_comments">
+            <filter_attributes>
+                <filter_attribute name="campaign_comments">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="Text (words)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="campaign_comments">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="campaign_comments">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="application_id">
+            <filter_attributes>
+                <filter_attribute name="application_id">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="application_id">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="application_id">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="status">
+            <filter_attributes>
+                <filter_attribute name="status">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="status">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="status">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="coupon_code">
+            <filter_attributes>
+                <filter_attribute name="coupon_code">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="coupon_code">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="coupon_code">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="offer_amount">
+            <filter_attributes>
+                <filter_attribute name="offer_amount">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>double</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="offer_amount">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="offer_amount">
+                    <normalization name="Case insensitive"/>
+                    <type>double</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="offer_type">
+            <filter_attributes>
+                <filter_attribute name="offer_type">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="offer_type">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="offer_type">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="promotion_group">
+            <filter_attributes>
+                <filter_attribute name="promotion_group">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="promotion_group">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="promotion_group">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="campaign_key">
+            <filter_attributes>
+                <filter_attribute name="campaign_key">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="campaign_key">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="campaign_key">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="exclusivity_type">
+            <filter_attributes>
+                <filter_attribute name="exclusivity_type">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="exclusivity_type">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="exclusivity_type">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="priority">
+            <filter_attributes>
+                <filter_attribute name="priority">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="priority">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="priority">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="created">
+            <filter_attributes>
+                <filter_attribute name="created">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>long</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="created">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="created">
+                    <normalization name="Case insensitive"/>
+                    <type>long</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="modified">
+            <filter_attributes>
+                <filter_attribute name="modified">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>long</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="modified">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="modified">
+                    <normalization name="Case insensitive"/>
+                    <type>long</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="modified_by">
+            <filter_attributes>
+                <filter_attribute name="modified_by">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="modified_by">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="modified_by">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="promotion_type">
+            <filter_attributes>
+                <filter_attribute name="promotion_type">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="Text (words)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="promotion_type">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="promotion_type">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="per_order_limit">
+            <filter_attributes>
+                <filter_attribute name="per_order_limit">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>int</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="per_order_limit">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="per_order_limit">
+                    <normalization name="Case insensitive"/>
+                    <type>int</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="application_limit">
+            <filter_attributes>
+                <filter_attribute name="application_limit">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>int</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="application_limit">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="application_limit">
+                    <normalization name="Case insensitive"/>
+                    <type>int</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="customer_limit">
+            <filter_attributes>
+                <filter_attribute name="customer_limit">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>int</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="customer_limit">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="customer_limit">
+                    <normalization name="Case insensitive"/>
+                    <type>int</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="max_entry_discount_quantity">
+            <filter_attributes>
+                <filter_attribute name="max_entry_discount_quantity">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>double</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="max_entry_discount_quantity">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="max_entry_discount_quantity">
+                    <normalization name="Case insensitive"/>
+                    <type>double</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="name">
+            <filter_attributes>
+                <filter_attribute name="name">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="Text (words)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="name">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="name">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="locale_filter">
+            <filter_attributes>
+                <filter_attribute name="locale_filter">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="locale_filter">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="locale_filter">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+        <attribute name="ad_key">
+            <filter_attributes>
+                <filter_attribute name="ad_key">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <tokenization name="(no refinement)"/>
+                    <type>string</type>
+                </filter_attribute>
+            </filter_attributes>
+            <search_attributes>
+                <search_attribute name="ad_key">
+                    <format name="Pipe-separated list (e.g. a|b|c)"/>
+                    <match_suffix>true</match_suffix>
+                    <suggest>true</suggest>
+                </search_attribute>
+            </search_attributes>
+            <sort_attributes>
+                <sort_attribute name="ad_key">
+                    <normalization name="Case insensitive"/>
+                    <type>string</type>
+                </sort_attribute>
+            </sort_attributes>
+            <present xml="false"/>
+        </attribute>
+    </ad_attributes>
+</configuration>

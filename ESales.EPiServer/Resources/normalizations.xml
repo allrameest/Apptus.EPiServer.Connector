@@ -1,0 +1,56 @@
+<normalizations>
+        <normalization name="(no refinement)">
+            <default>
+                <rules></rules>
+            </default>
+        </normalization>
+        <normalization name="Case insensitive">
+            <default>
+                <rules>
+                    <rule priority="1">
+                        <type>string rule</type>
+                        <class>com.apptus.esales.text.string.LowercaseRule</class>
+                        <definition></definition>
+                    </rule>
+                </rules>
+            </default>
+        </normalization>
+        <normalization name="Keep digits only (e.g. 1234)">
+            <default>
+                <rules>
+                    <rule priority="1">
+                        <type>string rule</type>
+                        <class>com.apptus.esales.text.string.NumericRule</class>
+                        <definition></definition>
+                    </rule>
+                </rules>
+            </default>
+        </normalization>
+        <normalization name="Keep digits and letters (e.g. Text123)">
+            <default>
+                <rules>
+                    <rule priority="1">
+                        <type>string rule</type>
+                        <class>com.apptus.esales.text.string.AlphanumericRule</class>
+                        <definition></definition>
+                    </rule>
+                </rules>
+            </default>
+        </normalization>
+        <normalization name="Keep digits and letters, case insensitive">
+            <default>
+                <rules>
+                    <rule priority="1">
+                        <type>string rule</type>
+                        <class>com.apptus.esales.text.string.AlphanumericRule</class>
+                        <definition></definition>
+                    </rule>
+                    <rule priority="2">
+                        <type>string rule</type>
+                        <class>com.apptus.esales.text.string.LowercaseRule</class>
+                        <definition></definition>
+                    </rule>
+                </rules>
+            </default>
+        </normalization>
+    </normalizations>

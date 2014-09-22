@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESales.EPiServer", "ESales.EPiServer\ESales.EPiServer.csproj", "{FA5C582D-784F-4350-9A27-7F4ACBE8DEA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESales.EPiServer.ScheduledJobs", "ESales.EPiServer.ScheduledJobs\ESales.EPiServer.ScheduledJobs.csproj", "{A42DC214-7E10-40BF-9294-173F27F1DA2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESales.EPiServer.Web", "ESales.EPiServer.Web\ESales.EPiServer.Web.csproj", "{0426ED4C-A35E-4FB4-BBF1-78AEA071F843}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESales.EPiServer.Tests", "ESales.EPiServer.Tests\ESales.EPiServer.Tests.csproj", "{14A95B21-0DFB-4B20-95F7-E60374D7802C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESales.EPiServer.TestHelper", "ESales.EPiServer.TestHelper\ESales.EPiServer.TestHelper.csproj", "{16D54E14-36DA-4520-A857-E592B7CF8096}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9E555577-D640-405D-9F33-25717EC0B771}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA5C582D-784F-4350-9A27-7F4ACBE8DEA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA5C582D-784F-4350-9A27-7F4ACBE8DEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA5C582D-784F-4350-9A27-7F4ACBE8DEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA5C582D-784F-4350-9A27-7F4ACBE8DEA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A42DC214-7E10-40BF-9294-173F27F1DA2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A42DC214-7E10-40BF-9294-173F27F1DA2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A42DC214-7E10-40BF-9294-173F27F1DA2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A42DC214-7E10-40BF-9294-173F27F1DA2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0426ED4C-A35E-4FB4-BBF1-78AEA071F843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0426ED4C-A35E-4FB4-BBF1-78AEA071F843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0426ED4C-A35E-4FB4-BBF1-78AEA071F843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0426ED4C-A35E-4FB4-BBF1-78AEA071F843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14A95B21-0DFB-4B20-95F7-E60374D7802C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14A95B21-0DFB-4B20-95F7-E60374D7802C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14A95B21-0DFB-4B20-95F7-E60374D7802C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14A95B21-0DFB-4B20-95F7-E60374D7802C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16D54E14-36DA-4520-A857-E592B7CF8096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16D54E14-36DA-4520-A857-E592B7CF8096}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16D54E14-36DA-4520-A857-E592B7CF8096}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16D54E14-36DA-4520-A857-E592B7CF8096}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
