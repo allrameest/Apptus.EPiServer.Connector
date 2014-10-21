@@ -110,38 +110,199 @@ namespace ESales.EPiServer.Tests
         }
 
         [Test]
-        public void AdsAppender()
+        public void AdsFullWithAdsNoAppender()
         {
             var fileSystem = new Mock<IFileSystem>();
             var adsStream = new MemoryStream();
-            fileSystem.Setup( fs => fs.Open( It.IsAny<string>(), FileMode.CreateNew, FileAccess.Write ) ).Returns( () => ( adsStream = new MemoryStream() ) );
+            fileSystem.Setup(fs => fs.Open(It.IsAny<string>(), FileMode.CreateNew, FileAccess.Write)).Returns(() => (adsStream = new MemoryStream()));
 
             var builder = Builder();
-            builder.Register( c => fileSystem.Object );
+            builder.Register(c => fileSystem.Object);
             var container = builder.Build();
             var adsIndexBuilder = container.Resolve<AdsIndexBuilder>();
-            adsIndexBuilder.Build( false );
+
+            adsIndexBuilder.Build(false);
             var adsBytes = adsStream.ToArray();
-            var ads = Encoding.UTF8.GetString( adsBytes, 3, adsBytes.Length - 3 ); // Remove BOM
-            var adsXml = XDocument.Parse( ads );
+            var ads = Encoding.UTF8.GetString(adsBytes, 3, adsBytes.Length - 3); // Remove BOM
+            var adsXml = XDocument.Parse(ads);
 
-            Assert.That( adsXml.Element( "operations" ).Element( "add" ).Elements( "ad" ).Count(), Is.EqualTo( 1 ) );
+            Assert.That(adsXml.Element("operations").Element("add").Elements("ad").Count(), Is.EqualTo(1));
+        }
 
-            builder = Builder();
-            builder.Register( c => fileSystem.Object );
+        [Test]
+        public void AdsFullNoAdsNoAppender()
+        {
+            var fileSystem = new Mock<IFileSystem>();
+            var adsStream = new MemoryStream();
+            fileSystem.Setup(fs => fs.Open(It.IsAny<string>(), FileMode.CreateNew, FileAccess.Write)).Returns(() => (adsStream = new MemoryStream()));
+
+            var builder = Builder();
+            builder.Register(c => fileSystem.Object);
+            builder.Register(c => new PromotionDto.PromotionLanguageDataTable());
+            builder.Register(c => new PromotionDto.PromotionDataTable());
+            builder.Register(c => new CampaignDto.CampaignDataTable());
+            builder.RegisterType<PromotionDataTableMapper>();
+            builder.RegisterType<PromotionEntryCodeProvider>();
+            var container = builder.Build();
+            var adsIndexBuilder = container.Resolve<AdsIndexBuilder>();
+
+            adsIndexBuilder.Build(false);
+            var adsBytes = adsStream.ToArray();
+            var ads = Encoding.UTF8.GetString(adsBytes, 3, adsBytes.Length - 3); // Remove BOM
+            var adsXml = XDocument.Parse(ads);
+
+            Assert.That(adsXml.Element("operations").Element("add").Elements("ad").Any(), Is.False);
+        }
+
+        [Test]
+        public void AdsFullWithAdsWithAppender()
+        {
+            var fileSystem = new Mock<IFileSystem>();
+            var adsStream = new MemoryStream();
+            fileSystem.Setup(fs => fs.Open(It.IsAny<string>(), FileMode.CreateNew, FileAccess.Write)).Returns(() => (adsStream = new MemoryStream()));
+
+            var builder = Builder();
+            builder.Register(c => fileSystem.Object);
             var appender = new Mock<IAdsAppender>();
-            appender.Setup( ac => ac.Append( It.IsAny<bool>() ) ).Returns( () => new[] { new Ad( "Ext1", new[] { new Attribute( "name", "ExtFooAd1" ) } ) } );
-            builder.Register( c => appender.Object );
-            container = builder.Build();
-            adsIndexBuilder = container.Resolve<AdsIndexBuilder>();
-            adsIndexBuilder.Build( false );
-            adsBytes = adsStream.ToArray();
-            ads = Encoding.UTF8.GetString( adsBytes, 3, adsBytes.Length - 3 ); // Remove BOM
-            adsXml = XDocument.Parse( ads );
+            appender.Setup(ac => ac.Append(It.IsAny<bool>())).Returns(() => new[] { new Ad("Ext1", new[] { new Attribute("name", "ExtFooAd1") }) });
+            builder.Register(c => appender.Object);
+            var container = builder.Build();
+            var adsIndexBuilder = container.Resolve<AdsIndexBuilder>();
 
-            Assert.That( adsXml.Element( "operations" ).Element( "add" ).Elements( "ad" ).Count(), Is.EqualTo( 2 ) );
-            var matchingAd = adsXml.Element( "operations" ).Element( "add" ).Elements( "ad" ).Single( a => a.Element( "ad_key" ).Value == "Ext1" );
-            Assert.That( matchingAd.Element( "name" ).Value, Is.EqualTo( "ExtFooAd1" ) );
+            adsIndexBuilder.Build(false);
+            var adsBytes = adsStream.ToArray();
+            var ads = Encoding.UTF8.GetString(adsBytes, 3, adsBytes.Length - 3); // Remove BOM
+            var adsXml = XDocument.Parse(ads);
+
+            Assert.That(adsXml.Element("operations").Element("add").Elements("ad").Count(), Is.EqualTo(2));
+            var matchingAd = adsXml.Element("operations").Element("add").Elements("ad").Single(a => a.Element("ad_key").Value == "Ext1");
+            Assert.That(matchingAd.Element("name").Value, Is.EqualTo("ExtFooAd1"));
+        }
+
+        [Test]
+        public void AdsFullNoAdsWithAppender()
+        {
+            var fileSystem = new Mock<IFileSystem>();
+            var adsStream = new MemoryStream();
+            fileSystem.Setup(fs => fs.Open(It.IsAny<string>(), FileMode.CreateNew, FileAccess.Write)).Returns(() => (adsStream = new MemoryStream()));
+
+            var builder = Builder();
+            builder.Register(c => fileSystem.Object);
+            builder.Register(c => new PromotionDto.PromotionLanguageDataTable());
+            builder.Register(c => new PromotionDto.PromotionDataTable());
+            builder.Register(c => new CampaignDto.CampaignDataTable());
+            builder.RegisterType<PromotionDataTableMapper>();
+            builder.RegisterType<PromotionEntryCodeProvider>();
+            var appender = new Mock<IAdsAppender>();
+            appender.Setup(ac => ac.Append(It.IsAny<bool>())).Returns(() => new[] { new Ad("Ext1", new[] { new Attribute("name", "ExtFooAd1") }) });
+            builder.Register(c => appender.Object);
+            var container = builder.Build();
+            var adsIndexBuilder = container.Resolve<AdsIndexBuilder>();
+
+            adsIndexBuilder.Build(false);
+            var adsBytes = adsStream.ToArray();
+            var ads = Encoding.UTF8.GetString(adsBytes, 3, adsBytes.Length - 3); // Remove BOM
+            var adsXml = XDocument.Parse(ads);
+
+            Assert.That(adsXml.Element("operations").Element("add").Elements("ad").Count(), Is.EqualTo(1));
+            var matchingAd = adsXml.Element("operations").Element("add").Elements("ad").Single(a => a.Element("ad_key").Value == "Ext1");
+            Assert.That(matchingAd.Element("name").Value, Is.EqualTo("ExtFooAd1"));
+        }
+
+        [Test]
+        public void AdsIncrementalWithChangesNoAppender()
+        {
+            var fileSystem = new Mock<IFileSystem>();
+            var adsStream = new MemoryStream();
+            fileSystem.Setup(fs => fs.Open(It.IsAny<string>(), FileMode.CreateNew, FileAccess.Write)).Returns(() => (adsStream = new MemoryStream()));
+
+            var builder = Builder();
+            builder.Register(c => fileSystem.Object);
+            var container = builder.Build();
+            var adsIndexBuilder = container.Resolve<AdsIndexBuilder>();
+
+            adsIndexBuilder.Build(true);
+            var adsBytes = adsStream.ToArray();
+
+            Assert.That(adsBytes.Any(), Is.False);
+        }
+
+        [Test]
+        public void AdsIncrementalWithChangesWithAppender()
+        {
+            var fileSystem = new Mock<IFileSystem>();
+            var adsStream = new MemoryStream();
+            fileSystem.Setup(fs => fs.Open(It.IsAny<string>(), FileMode.CreateNew, FileAccess.Write)).Returns(() => (adsStream = new MemoryStream()));
+
+            var builder = Builder();
+            builder.Register(c => fileSystem.Object);
+            var appender = new Mock<IAdsAppender>();
+            appender.Setup(ac => ac.Append(It.IsAny<bool>())).Returns(() => new[] { new Ad("Ext1", new[] { new Attribute("name", "ExtFooAd1") }) });
+            builder.Register(c => appender.Object);
+            var container = builder.Build();
+            var adsIndexBuilder = container.Resolve<AdsIndexBuilder>();
+
+            adsIndexBuilder.Build(true);
+            var adsBytes = adsStream.ToArray();
+            var ads = Encoding.UTF8.GetString(adsBytes, 3, adsBytes.Length - 3); // Remove BOM
+            var adsXml = XDocument.Parse(ads);
+
+            Assert.That(adsXml.Element("operations").Element("add").Elements("ad").Count(), Is.EqualTo(1));
+            var matchingAd = adsXml.Element("operations").Element("add").Elements("ad").Single(a => a.Element("ad_key").Value == "Ext1");
+            Assert.That(matchingAd.Element("name").Value, Is.EqualTo("ExtFooAd1"));
+        }
+
+        [Test]
+        public void AdsIncrementalNoChangesNoAppender()
+        {
+            var fileSystem = new Mock<IFileSystem>();
+            var adsStream = new MemoryStream();
+            fileSystem.Setup(fs => fs.Open(It.IsAny<string>(), FileMode.CreateNew, FileAccess.Write)).Returns(() => (adsStream = new MemoryStream()));
+
+            var builder = Builder();
+            builder.Register(c => fileSystem.Object);
+            builder.Register(c => new PromotionDto.PromotionLanguageDataTable());
+            builder.Register(c => new PromotionDto.PromotionDataTable());
+            builder.Register(c => new CampaignDto.CampaignDataTable());
+            builder.RegisterType<PromotionDataTableMapper>();
+            builder.RegisterType<PromotionEntryCodeProvider>();
+            var container = builder.Build();
+            var adsIndexBuilder = container.Resolve<AdsIndexBuilder>();
+
+            adsIndexBuilder.Build(true);
+            var adsBytes = adsStream.ToArray();
+
+            Assert.That(adsBytes.Any(), Is.False);
+        }
+
+        [Test]
+        public void AdsIncrementalNoChangesWithAppender()
+        {
+            var fileSystem = new Mock<IFileSystem>();
+            var adsStream = new MemoryStream();
+            fileSystem.Setup(fs => fs.Open(It.IsAny<string>(), FileMode.CreateNew, FileAccess.Write)).Returns(() => (adsStream = new MemoryStream()));
+
+            var builder = Builder();
+            builder.Register(c => fileSystem.Object);
+            builder.Register(c => new PromotionDto.PromotionLanguageDataTable());
+            builder.Register(c => new PromotionDto.PromotionDataTable());
+            builder.Register(c => new CampaignDto.CampaignDataTable());
+            builder.RegisterType<PromotionDataTableMapper>();
+            builder.RegisterType<PromotionEntryCodeProvider>();
+            var appender = new Mock<IAdsAppender>();
+            appender.Setup(ac => ac.Append(It.IsAny<bool>())).Returns(() => new[] { new Ad("Ext1", new[] { new Attribute("name", "ExtFooAd1") }) });
+            builder.Register(c => appender.Object);
+            var container = builder.Build();
+            var adsIndexBuilder = container.Resolve<AdsIndexBuilder>();
+
+            adsIndexBuilder.Build(true);
+            var adsBytes = adsStream.ToArray();
+            var ads = Encoding.UTF8.GetString(adsBytes, 3, adsBytes.Length - 3); // Remove BOM
+            var adsXml = XDocument.Parse(ads);
+
+            Assert.That(adsXml.Element("operations").Element("add").Elements("ad").Count(), Is.EqualTo(1));
+            var matchingAd = adsXml.Element("operations").Element("add").Elements("ad").Single(a => a.Element("ad_key").Value == "Ext1");
+            Assert.That(matchingAd.Element("name").Value, Is.EqualTo("ExtFooAd1"));
         }
 
 

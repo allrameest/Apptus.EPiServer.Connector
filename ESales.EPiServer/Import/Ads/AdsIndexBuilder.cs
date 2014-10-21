@@ -32,23 +32,33 @@ namespace Apptus.ESales.EPiServer.Import.Ads
             _appenderPlugin = appenderPlugin;
         }
 
-        public void Build( bool incremental )
+        public void Build(bool incremental)
         {
-            if ( !incremental && _appConfig.EnableAds )
+            if (_appConfig.EnableAds)
             {
-                _indexSystem.Log( "Extracting ads." );
-                var ads = new AdAttributeHelper().ConvertToAds( _dataTableMapper, _promotionEntryCodeProvider );
-                ads = UsePlugins( ads, incremental );
-                var adsXml = new XElement( "operations",
-                                           new XElement( "clear",
-                                                         new XElement( "ad" ) ),
-                                           new XElement( "add",
-                                                         ConvertAdsToXml( ads ) ) );
-                using ( var file = _fileSystem.Open( _fileHelper.AdsFile, FileMode.CreateNew, FileAccess.Write ) )
+                _indexSystem.Log("Extracting ads.");
+
+                var ads = Enumerable.Empty<IEntity>();
+                if (!incremental)
                 {
-                    adsXml.Save( file );
+                    ads = new AdAttributeHelper().ConvertToAds(_dataTableMapper, _promotionEntryCodeProvider);
                 }
-                _indexSystem.Log( "Done extracting ads." );
+                ads = UsePlugins(ads, incremental);
+
+                var allAds = ads.ToArray();
+                if (allAds.Any() || !incremental)
+                {
+                    var adsXml = new XElement("operations",
+                                           new XElement("clear",
+                                                         new XElement("ad")),
+                                           new XElement("add",
+                                                         ConvertAdsToXml(allAds)));
+                    using (var file = _fileSystem.Open(_fileHelper.AdsFile, FileMode.CreateNew, FileAccess.Write))
+                    {
+                        adsXml.Save(file);
+                    }
+                }
+                _indexSystem.Log("Done extracting ads.");
             }
         }
 
