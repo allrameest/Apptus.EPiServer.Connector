@@ -232,3 +232,4 @@ $RECYCLE.BIN/
 # Project specific
 # ================
 /lib/
+/ESales.EPiServer.ScheduledJobs/src/
