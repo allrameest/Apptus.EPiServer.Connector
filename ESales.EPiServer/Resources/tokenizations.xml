@@ -739,7 +739,7 @@
                         <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
-                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                            <definition>`-=[]:;&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
                         <rule priority="7">
                             <type>string rule</type>
@@ -768,7 +768,7 @@
                         <rule priority="3">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.ComponentRule</class>
-                            <definition>./-·</definition>
+                            <definition>:./-·</definition>
                         </rule>
                         <rule priority="4">
                             <type>scan rule</type>
@@ -783,7 +783,7 @@
                         <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
-                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                            <definition>`-=[]:;&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
                         <rule priority="7">
                             <type>string rule</type>
@@ -812,7 +812,7 @@
                         <rule priority="3">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.ComponentRule</class>
-                            <definition>./-·</definition>
+                            <definition>:./-·</definition>
                         </rule>
                         <rule priority="4">
                             <type>scan rule</type>
@@ -827,7 +827,7 @@
                         <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
-                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                            <definition>`-=[]:;&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
                         <rule priority="7">
                             <type>string rule</type>
@@ -856,7 +856,7 @@
                         <rule priority="3">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.ComponentRule</class>
-                            <definition>./-·</definition>
+                            <definition>:./-·</definition>
                         </rule>
                         <rule priority="4">
                             <type>scan rule</type>
@@ -871,7 +871,7 @@
                         <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
-                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                            <definition>`-=[]:;&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
                         <rule priority="7">
                             <type>string rule</type>
@@ -900,7 +900,7 @@
                         <rule priority="3">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.ComponentRule</class>
-                            <definition>./-·</definition>
+                            <definition>:./-·</definition>
                         </rule>
                         <rule priority="4">
                             <type>scan rule</type>
@@ -915,7 +915,7 @@
                         <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
-                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                            <definition>`-=[]:;&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
                         <rule priority="7">
                             <type>string rule</type>
@@ -944,7 +944,7 @@
                         <rule priority="3">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.ComponentRule</class>
-                            <definition>./-·</definition>
+                            <definition>:./-·</definition>
                         </rule>
                         <rule priority="4">
                             <type>scan rule</type>
@@ -959,7 +959,7 @@
                         <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
-                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                            <definition>`-=[]:;&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
                         <rule priority="7">
                             <type>string rule</type>
@@ -988,7 +988,7 @@
                         <rule priority="3">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.ComponentRule</class>
-                            <definition>./-·</definition>
+                            <definition>:./-·</definition>
                         </rule>
                         <rule priority="4">
                             <type>scan rule</type>
@@ -1003,7 +1003,7 @@
                         <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
-                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                            <definition>`-=[]:;&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
                         <rule priority="7">
                             <type>string rule</type>
@@ -1032,7 +1032,7 @@
                         <rule priority="3">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.ComponentRule</class>
-                            <definition>./-·</definition>
+                            <definition>:./-·</definition>
                         </rule>
                         <rule priority="4">
                             <type>scan rule</type>
@@ -1047,7 +1047,7 @@
                         <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
-                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                            <definition>`-=[]:;&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
                         <rule priority="7">
                             <type>string rule</type>
@@ -1076,7 +1076,7 @@
                         <rule priority="3">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.ComponentRule</class>
-                            <definition>./-·</definition>
+                            <definition>:./-·</definition>
                         </rule>
                         <rule priority="4">
                             <type>scan rule</type>
@@ -1091,7 +1091,7 @@
                         <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
-                            <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
+                            <definition>`-=[]:;&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
                         <rule priority="7">
                             <type>string rule</type>
@@ -1111,30 +1111,35 @@
                     <rules>
                         <rule priority="1">
                             <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                            <definition>:-/</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.UnicodeRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="2">
+                        <rule priority="3">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.letter.LetterRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="3">
+                        <rule priority="4">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.RegexRule</class>
                             <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
                         </rule>
-                        <rule priority="4">
+                        <rule priority="5">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
                             <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
-                        <rule priority="5">
+                        <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.LowercaseRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="6">
+                        <rule priority="7">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.StemRule</class>
                             <definition></definition>
@@ -1145,30 +1150,35 @@
                     <rules>
                         <rule priority="1">
                             <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                            <definition>:-/</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.LatinRule</class>
                             <definition>+#·</definition>
                         </rule>
-                        <rule priority="2">
+                        <rule priority="3">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.letter.LetterRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="3">
+                        <rule priority="4">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.RegexRule</class>
                             <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
                         </rule>
-                        <rule priority="4">
+                        <rule priority="5">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
                             <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
-                        <rule priority="5">
+                        <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.LowercaseRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="6">
+                        <rule priority="7">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.StemRule</class>
                             <definition></definition>
@@ -1179,30 +1189,35 @@
                     <rules>
                         <rule priority="1">
                             <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                            <definition>:-/</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.LatinRule</class>
                             <definition>+#·</definition>
                         </rule>
-                        <rule priority="2">
+                        <rule priority="3">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.letter.LetterRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="3">
+                        <rule priority="4">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.RegexRule</class>
                             <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
                         </rule>
-                        <rule priority="4">
+                        <rule priority="5">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
                             <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
-                        <rule priority="5">
+                        <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.LowercaseRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="6">
+                        <rule priority="7">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.StemRule</class>
                             <definition></definition>
@@ -1213,30 +1228,35 @@
                     <rules>
                         <rule priority="1">
                             <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                            <definition>:-/</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.LatinRule</class>
                             <definition>+#·</definition>
                         </rule>
-                        <rule priority="2">
+                        <rule priority="3">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.letter.LetterRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="3">
+                        <rule priority="4">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.RegexRule</class>
                             <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
                         </rule>
-                        <rule priority="4">
+                        <rule priority="5">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
                             <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
-                        <rule priority="5">
+                        <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.LowercaseRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="6">
+                        <rule priority="7">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.StemRule</class>
                             <definition></definition>
@@ -1247,30 +1267,35 @@
                     <rules>
                         <rule priority="1">
                             <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                            <definition>:-/</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.LatinRule</class>
                             <definition>+#·</definition>
                         </rule>
-                        <rule priority="2">
+                        <rule priority="3">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.letter.LetterRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="3">
+                        <rule priority="4">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.RegexRule</class>
                             <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
                         </rule>
-                        <rule priority="4">
+                        <rule priority="5">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
                             <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
-                        <rule priority="5">
+                        <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.LowercaseRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="6">
+                        <rule priority="7">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.StemRule</class>
                             <definition></definition>
@@ -1281,30 +1306,35 @@
                     <rules>
                         <rule priority="1">
                             <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                            <definition>:-/</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.LatinRule</class>
                             <definition>+#·</definition>
                         </rule>
-                        <rule priority="2">
+                        <rule priority="3">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.letter.LetterRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="3">
+                        <rule priority="4">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.RegexRule</class>
                             <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
                         </rule>
-                        <rule priority="4">
+                        <rule priority="5">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
                             <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
-                        <rule priority="5">
+                        <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.LowercaseRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="6">
+                        <rule priority="7">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.StemRule</class>
                             <definition></definition>
@@ -1315,30 +1345,35 @@
                     <rules>
                         <rule priority="1">
                             <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                            <definition>:-/</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.LatinRule</class>
                             <definition>+#·</definition>
                         </rule>
-                        <rule priority="2">
+                        <rule priority="3">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.letter.LetterRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="3">
+                        <rule priority="4">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.RegexRule</class>
                             <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
                         </rule>
-                        <rule priority="4">
+                        <rule priority="5">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
                             <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
-                        <rule priority="5">
+                        <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.LowercaseRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="6">
+                        <rule priority="7">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.StemRule</class>
                             <definition></definition>
@@ -1349,30 +1384,35 @@
                     <rules>
                         <rule priority="1">
                             <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                            <definition>:-/</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.LatinRule</class>
                             <definition>+#·</definition>
                         </rule>
-                        <rule priority="2">
+                        <rule priority="3">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.letter.LetterRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="3">
+                        <rule priority="4">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.RegexRule</class>
                             <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
                         </rule>
-                        <rule priority="4">
+                        <rule priority="5">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
                             <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
-                        <rule priority="5">
+                        <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.LowercaseRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="6">
+                        <rule priority="7">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.StemRule</class>
                             <definition></definition>
@@ -1383,30 +1423,35 @@
                     <rules>
                         <rule priority="1">
                             <type>scan rule</type>
+                            <class>com.apptus.esales.text.scan.DelimiterRule</class>
+                            <definition>:-/</definition>
+                        </rule>
+                        <rule priority="2">
+                            <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.LatinRule</class>
                             <definition>+#·</definition>
                         </rule>
-                        <rule priority="2">
+                        <rule priority="3">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.letter.LetterRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="3">
+                        <rule priority="4">
                             <type>scan rule</type>
                             <class>com.apptus.esales.text.scan.RegexRule</class>
                             <definition>(([^\d]+)|([\d\-\.\,]+))</definition>
                         </rule>
-                        <rule priority="4">
+                        <rule priority="5">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.RemoveAnsiCharactersRule</class>
                             <definition>`-=[];&apos;\,./·~!@$%^&amp;*()_+{}&quot;|&gt;&lt;?§´¨½¼¾¤£€©®</definition>
                         </rule>
-                        <rule priority="5">
+                        <rule priority="6">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.LowercaseRule</class>
                             <definition></definition>
                         </rule>
-                        <rule priority="6">
+                        <rule priority="7">
                             <type>string rule</type>
                             <class>com.apptus.esales.text.string.StemRule</class>
                             <definition></definition>
