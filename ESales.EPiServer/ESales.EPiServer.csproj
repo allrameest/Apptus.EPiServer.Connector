@@ -215,6 +215,7 @@
     <Compile Include="Import\Products\EntryConverter.cs" />
     <Compile Include="Import\Products\ESalesVariantHelper.cs" />
     <Compile Include="Import\Products\ICatalogEntryProvider.cs" />
+    <Compile Include="Import\Products\IBatchedProductConverter.cs" />
     <Compile Include="Import\Products\IProductsAppender.cs" />
     <Compile Include="Import\Products\IProductConverter.cs" />
     <Compile Include="Import\Products\Product.cs" />
@@ -239,6 +240,7 @@
     <Compile Include="Navigation\ESalesMenuProvider.cs" />
     <Compile Include="Util\ArgumentHelper.cs" />
     <Compile Include="Util\AssemblyProvider.cs" />
+    <Compile Include="Util\EnumerableExtensions.cs" />
     <Compile Include="Util\Extensions.cs" />
     <Compile Include="Util\ESales.cs" />
     <Compile Include="Util\ESalesEntry.cs" />

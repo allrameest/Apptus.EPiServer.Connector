@@ -38,6 +38,7 @@ namespace Apptus.ESales.EPiServer.Config
         public bool UseCodeAsKey { get; private set; }
         public string FilterConfigurationFile { get; private set; }
         public bool Debug { get; private set; }
+        public int ProductBatchSize { get; private set; }
         
         private void LoadConfiguration()
         {
@@ -90,6 +91,7 @@ namespace Apptus.ESales.EPiServer.Config
             UseCodeAsKey = parser.RequiredBool( "useCodeAsKey" );
             FilterConfigurationFile = parser.OptionalString( "filterConfigurationFile", ApplicationPath + "\\Configs\\Mediachase.Search.Filters.config" );
             Debug = parser.OptionalBool( "debug", false );
+            ProductBatchSize = parser.OptionalInt("productBatchSize", 1000);
 
             if ( EnableAds )
             {

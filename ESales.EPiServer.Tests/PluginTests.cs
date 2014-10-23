@@ -50,6 +50,41 @@ namespace ESales.EPiServer.Tests
         }
 
         [Test]
+        public void BatchedProductConverter()
+        {
+            var builder = Builder();
+            var writer = new Mock<IOperationsWriter>();
+            var added = new List<IEntity>();
+            writer.Setup(w => w.Add(It.IsAny<IEntity>())).Callback<IEntity>(added.Add);
+            builder.Register(c => writer.Object);
+            var container = builder.Build();
+
+            container.Resolve<ProductIndexBuilder>().Build(false);
+            Assert.That(added.Single(a => a.Key.Value == "CODE1_sv_SE").Single(a => a.Name == "name").Value, Is.EqualTo("foo1"));
+            Assert.That(added.Single(a => a.Key.Value == "CODE2_sv_SE").Single(a => a.Name == "name").Value, Is.EqualTo("foo2"));
+
+            builder = Builder();
+            builder.Register(c => writer.Object);
+            var nameConverter = new Mock<IProductConverter>();
+            nameConverter.Setup(pc => pc.Convert(It.Is<IEntity>(e => e.Key.Value == "CODE1_sv_SE")))
+                .Returns<IEntity>(e => new Product(e.Where(a => a.Name != "name").Concat(new[] {new Attribute("name", "bar")})));
+            nameConverter.Setup(pc => pc.Convert(It.Is<IEntity>(e => e.Key.Value != "CODE1_sv_SE")))
+                .Returns<IEntity>(e => e);
+            var batchedNameConverter = new Mock<IBatchedProductConverter>();
+            batchedNameConverter.Setup(bpc => bpc.Convert(It.IsAny<IReadOnlyCollection<IEntity>>()))
+                .Returns<IReadOnlyCollection<IEntity>>(entries => entries
+                    .Select(e => new Product(e.Where(a => a.Name != "name").Concat(new[] {new Attribute("name", "batch")})))
+                    .ToArray());
+            builder.Register(c => nameConverter.Object);
+            builder.Register(c => batchedNameConverter.Object);
+            container = builder.Build();
+            added.Clear();
+            container.Resolve<ProductIndexBuilder>().Build(false);
+            Assert.That(added.Single(a => a.Key.Value == "CODE1_sv_SE").Single(a => a.Name == "name").Value, Is.EqualTo("bar"));
+            Assert.That(added.Single(a => a.Key.Value == "CODE2_sv_SE").Single(a => a.Name == "name").Value, Is.EqualTo("batch"));
+        }
+
+        [Test]
         public void AdConverter()
         {
             var fileSystem = new Mock<IFileSystem>();
@@ -310,6 +345,7 @@ namespace ESales.EPiServer.Tests
         {
             var appConfig = new Mock<IAppConfig>();
             appConfig.Setup( ac => ac.EnableAds ).Returns( true );
+            appConfig.Setup( ac => ac.ProductBatchSize ).Returns( 1000 );
             var catalogSystem = new Mock<ICatalogSystemMapper>();
             catalogSystem.Setup( cs => cs.GetCatalogs() ).Returns( new CatalogDto.CatalogDataTable().WithRow( "FooCatalog" ) );
             catalogSystem

@@ -24,5 +24,6 @@ namespace Apptus.ESales.EPiServer.Config
         bool UseCodeAsKey { get; }
         string FilterConfigurationFile { get; }
         bool Debug { get; }
+        int ProductBatchSize { get; }
     }
 }

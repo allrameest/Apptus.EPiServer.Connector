@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Apptus.ESales.EPiServer.Config;
 using Apptus.ESales.EPiServer.DataAccess;
+using Apptus.ESales.EPiServer.Util;
 using Mediachase.Commerce.Catalog.Dto;
 using Mediachase.Search;
 
@@ -19,11 +20,13 @@ namespace Apptus.ESales.EPiServer.Import.Products
         private readonly IOperationsWriter _writer;
         private readonly IProductConverter _converterPlugin;
         private readonly IReadOnlyCollection<IProductsAppender> _appenderPlugins;
+        private readonly IBatchedProductConverter _batchedConverterPlugin;
         private Progress _progress;
 
         public ProductIndexBuilder(
             IAppConfig appConfig, ICatalogSystemMapper catalogSystem, IIndexSystemMapper indexSystem, IKeyLookup keyLookup,
-            EntryConverter entryConverter, IOperationsWriter writer, IEnumerable<IProductsAppender> appenderPlugins, IProductConverter converterPlugin = null)
+            EntryConverter entryConverter, IOperationsWriter writer, IEnumerable<IProductsAppender> appenderPlugins,
+            IProductConverter converterPlugin = null, IBatchedProductConverter batchedConverterPlugin = null)
         {
             _appConfig = appConfig;
             _catalogSystem = catalogSystem;
@@ -33,6 +36,7 @@ namespace Apptus.ESales.EPiServer.Import.Products
             _writer = writer;
             _converterPlugin = converterPlugin;
             _appenderPlugins = appenderPlugins.ToArray();
+            _batchedConverterPlugin = batchedConverterPlugin;
         }
 
         public void Build( bool incremental )
@@ -72,24 +76,31 @@ namespace Apptus.ESales.EPiServer.Import.Products
             }
         }
 
-        private void WriteDocuments( CatalogDto.CatalogRow catalog, string[] languages )
+        private void WriteDocuments(CatalogDto.CatalogRow catalog, string[] languages)
         {
-            var variantHelper = new ESalesVariantHelper( GetRelations( catalog.CatalogId ) );
-            var catalogEntryProvider = CatalogEntryProviderFactory.Create( _incremental, catalog.CatalogId, variantHelper, _catalogSystem, _indexSystem );
+            var variantHelper = new ESalesVariantHelper(GetRelations(catalog.CatalogId));
+            var catalogEntryProvider = CatalogEntryProviderFactory.Create(_incremental, catalog.CatalogId, variantHelper, _catalogSystem, _indexSystem);
             _progress.TotalNbrOfEntries = catalogEntryProvider.Count;
             var firstCatalogEntryId = int.MaxValue;
             var lastCatalogEntryId = int.MinValue;
-            _indexSystem.Log( "Begin indexing catalog \"{0}\" in eSales...", _progress.GetCurrentProgressPercent(), catalog.Name );
+            _indexSystem.Log("Begin indexing catalog \"{0}\" in eSales...", _progress.GetCurrentProgressPercent(), catalog.Name);
 
-            foreach ( var entry in catalogEntryProvider.GetCatalogEntries() )
+            var chunksToIndex = catalogEntryProvider.GetCatalogEntries()
+                .Select(entry =>
+                {
+                    SetFirstAndLastEntry(entry.CatalogEntryId, ref firstCatalogEntryId, ref lastCatalogEntryId);
+                    return entry;
+                })
+                .ToChunks(_appConfig.ProductBatchSize);
+
+            foreach (var chunk in chunksToIndex)
             {
-                SetFirstAndLastEntry( entry.CatalogEntryId, ref firstCatalogEntryId, ref lastCatalogEntryId );
-                IndexEntry( entry, languages, catalog, variantHelper );
+                IndexChunk(chunk, languages, catalog, variantHelper);
             }
 
             _progress.IncreaseCatalogCount();
-            _indexSystem.Log( "Done indexing catalog \"{0}\".", _progress.GetCurrentProgressPercent(), catalog.Name );
-            _indexSystem.SetBuildProperties( firstCatalogEntryId, lastCatalogEntryId, catalog.Name );
+            _indexSystem.Log("Done indexing catalog \"{0}\".", _progress.GetCurrentProgressPercent(), catalog.Name);
+            _indexSystem.SetBuildProperties(firstCatalogEntryId, lastCatalogEntryId, catalog.Name);
         }
 
         private static void SetFirstAndLastEntry( int id, ref int firstCatalogEntryId, ref int lastCatalogEntryId )
@@ -104,53 +115,54 @@ namespace Apptus.ESales.EPiServer.Import.Products
             }
         }
 
-        private void IndexEntry( CatalogEntryDto.CatalogEntryRow entry, string[] languages, CatalogDto.CatalogRow catalog,
-                                 ESalesVariantHelper variantHelper )
+
+        private void IndexChunk(
+            IReadOnlyCollection<CatalogEntryDto.CatalogEntryRow> entries,
+            IReadOnlyCollection<string> languages,
+            CatalogDto.CatalogRow catalog,
+            ESalesVariantHelper variantHelper)
         {
-            if ( variantHelper.IsVariant( entry.CatalogEntryId ) )
+            if (_incremental)
             {
-                Add( entry, languages, catalog, variantHelper );
-            }
-            else
-            {
-                UpdateProduct( entry, languages, catalog, variantHelper );
+                var variantEntries = entries
+                    .Where(entry => variantHelper.IsVariant(entry.CatalogEntryId))
+                    .ToArray();
+                var productEntries = variantEntries
+                    .SelectMany(variantEntry => variantHelper.GetVariants(variantEntry.CatalogEntryId))
+                    .Select(v => _catalogSystem.GetCatalogEntry(v));
+                var toRemove = variantEntries.Concat(productEntries);
+
+                RemoveProducts(toRemove, languages);
             }
 
-            ReportAddProgress();
+            Add(entries, languages, catalog, variantHelper);
         }
 
-        private void UpdateProduct( CatalogEntryDto.CatalogEntryRow entry, string[] languages, CatalogDto.CatalogRow catalog,
-                                    ESalesVariantHelper variantHelper )
+        private void RemoveProducts(IEnumerable<CatalogEntryDto.CatalogEntryRow> entries, IEnumerable<string> languages)
         {
-            if ( _incremental )
+            foreach (var key in entries.SelectMany(e => languages.Select(l => _keyLookup.Value(e, l))))
             {
-                // Variants might have changed from products -> variants, so delete as products just in case.
-                var variantEntries = variantHelper.GetVariants( entry.CatalogEntryId ).Select( v => _catalogSystem.GetCatalogEntry( v ) );
-                RemoveProducts( new[] { entry }.Concat( variantEntries ), languages );
-            }
-            Add( entry, languages, catalog, variantHelper );
-        }
-
-        private void Add( CatalogEntryDto.CatalogEntryRow entry, IEnumerable<string> languages, CatalogDto.CatalogRow catalog,
-                          ESalesVariantHelper variantHelper )
-        {
-            foreach ( var convertedEntry in _entryConverter.Convert( entry, languages, catalog, variantHelper ) )
-            {
-                var entity = convertedEntry;
-                if ( _converterPlugin != null )
-                {
-                    entity = _converterPlugin.Convert( convertedEntry );
-                }
-                _writer.Add( entity );
+                _writer.Remove(new Product(key));
             }
         }
 
-        private void RemoveProducts( IEnumerable<CatalogEntryDto.CatalogEntryRow> entries, IEnumerable<string> languages )
+        private void Add(IEnumerable<CatalogEntryDto.CatalogEntryRow> entries, IEnumerable<string> languages, CatalogDto.CatalogRow catalog,
+            ESalesVariantHelper variantHelper)
         {
-            foreach ( var key in entries.SelectMany( e => languages.Select( l => _keyLookup.Value( e, l ) ) ) )
+            var convertedEntities = BatchConvert(entries
+                .SelectMany(entry => _entryConverter.Convert(entry, languages, catalog, variantHelper)).ToArray())
+                .Select(entity => _converterPlugin == null ? entity : _converterPlugin.Convert(entity));
+
+            foreach (var entity in convertedEntities)
             {
-                _writer.Remove( new Product( key ) );
+                ReportAddProgress();
+                _writer.Add(entity);
             }
+        }
+
+        private IEnumerable<IEntity> BatchConvert(IReadOnlyCollection<IEntity> entities)
+        {
+            return _batchedConverterPlugin == null ? entities : _batchedConverterPlugin.Convert(entities);
         }
 
         private IEnumerable<CatalogRelationDto.CatalogEntryRelationRow> GetRelations( int catalogId )
