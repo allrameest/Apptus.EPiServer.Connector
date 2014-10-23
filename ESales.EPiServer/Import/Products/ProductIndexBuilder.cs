@@ -18,12 +18,12 @@ namespace Apptus.ESales.EPiServer.Import.Products
         private readonly EntryConverter _entryConverter;
         private readonly IOperationsWriter _writer;
         private readonly IProductConverter _converterPlugin;
-        private readonly IProductsAppender _appenderPlugin;
+        private readonly IReadOnlyCollection<IProductsAppender> _appenderPlugins;
         private Progress _progress;
 
-        public ProductIndexBuilder( IAppConfig appConfig, ICatalogSystemMapper catalogSystem, IIndexSystemMapper indexSystem, IKeyLookup keyLookup,
-                                    EntryConverter entryConverter, IOperationsWriter writer, IProductConverter converterPlugin = null,
-                                    IProductsAppender appenderPlugin = null )
+        public ProductIndexBuilder(
+            IAppConfig appConfig, ICatalogSystemMapper catalogSystem, IIndexSystemMapper indexSystem, IKeyLookup keyLookup,
+            EntryConverter entryConverter, IOperationsWriter writer, IEnumerable<IProductsAppender> appenderPlugins, IProductConverter converterPlugin = null)
         {
             _appConfig = appConfig;
             _catalogSystem = catalogSystem;
@@ -32,7 +32,7 @@ namespace Apptus.ESales.EPiServer.Import.Products
             _entryConverter = entryConverter;
             _writer = writer;
             _converterPlugin = converterPlugin;
-            _appenderPlugin = appenderPlugin;
+            _appenderPlugins = appenderPlugins.ToArray();
         }
 
         public void Build( bool incremental )
@@ -50,14 +50,12 @@ namespace Apptus.ESales.EPiServer.Import.Products
             }
         }
 
-        private void UseAppenderPlugin( bool incremental )
+        private void UseAppenderPlugin(bool incremental)
         {
-            if ( _appenderPlugin != null )
+            var entitiesToAppend = _appenderPlugins.SelectMany(a => a.Append(incremental));
+            foreach (var entity in entitiesToAppend)
             {
-                foreach ( var entity in _appenderPlugin.Append( incremental ) )
-                {
-                    _writer.Add( entity );
-                }
+                _writer.Add(entity);
             }
         }
 
