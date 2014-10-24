@@ -116,6 +116,8 @@
     <Compile Include="DataAccess\CatalogEntryProviderFactory.cs" />
     <Compile Include="DataAccess\CatalogEntryRowMapper.cs" />
     <Compile Include="DataAccess\CatalogSystemMapper.cs" />
+    <Compile Include="DataAccess\DefaultModifiedCatalogEntryLoader.cs" />
+    <Compile Include="DataAccess\IModifiedCatalogEntryLoader.cs" />
     <Compile Include="DataAccess\CodeKeyLookup.cs" />
     <Compile Include="DataAccess\ConnectorHelper.cs" />
     <Compile Include="DataAccess\ConnectorMapper.cs" />
@@ -239,6 +241,8 @@
     <Compile Include="Navigation\ESalesMenuProvider.cs" />
     <Compile Include="Util\ArgumentHelper.cs" />
     <Compile Include="Util\AssemblyProvider.cs" />
+    <Compile Include="Util\EnumerableExtensions.cs" />
+    <Compile Include="Util\ValueEqualityComparer.cs" />
     <Compile Include="Util\Extensions.cs" />
     <Compile Include="Util\ESales.cs" />
     <Compile Include="Util\ESalesEntry.cs" />

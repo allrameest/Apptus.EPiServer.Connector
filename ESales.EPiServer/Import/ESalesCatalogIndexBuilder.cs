@@ -138,14 +138,15 @@ namespace Apptus.ESales.EPiServer.Import
             }
         }
 
-        private static void RegisterPlugins( ContainerBuilder builder )
+        private static void RegisterPlugins(ContainerBuilder builder)
         {
             var assemblies = AssemblyProvider.GetAssemblies().ToArray();
-            builder.RegisterAssemblyTypes( assemblies ).As<IPromotionEntryCodes>().InstancePerLifetimeScope();
-            builder.RegisterAssemblyTypes( assemblies ).As<IProductConverter>().InstancePerLifetimeScope();
-            builder.RegisterAssemblyTypes( assemblies ).As<IAdConverter>().InstancePerLifetimeScope();
-            builder.RegisterAssemblyTypes( assemblies ).As<IProductsAppender>().InstancePerLifetimeScope();
-            builder.RegisterAssemblyTypes( assemblies ).As<IAdsAppender>().InstancePerLifetimeScope();
+            builder.RegisterAssemblyTypes(assemblies).As<IPromotionEntryCodes>().InstancePerLifetimeScope();
+            builder.RegisterAssemblyTypes(assemblies).As<IProductConverter>().InstancePerLifetimeScope();
+            builder.RegisterAssemblyTypes(assemblies).As<IAdConverter>().InstancePerLifetimeScope();
+            builder.RegisterAssemblyTypes(assemblies).As<IProductsAppender>().InstancePerLifetimeScope();
+            builder.RegisterAssemblyTypes(assemblies).As<IAdsAppender>().InstancePerLifetimeScope();
+            builder.RegisterAssemblyTypes(assemblies).As<IModifiedCatalogEntryLoader>().InstancePerLifetimeScope();
         }
     }
 }

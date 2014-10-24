@@ -305,6 +305,25 @@ namespace ESales.EPiServer.Tests
             Assert.That(matchingAd.Element("name").Value, Is.EqualTo("ExtFooAd1"));
         }
 
+        [Test]
+        public void ProductIncremental()
+        {
+            var loaderPlugin = new Mock<IModifiedCatalogEntryLoader>();
+            loaderPlugin
+                .Setup(l => l.Load(It.IsAny<int>(), It.IsAny<DateTime>(), It.IsAny<DateTime>()))
+                .Returns(new CatalogEntryDto.CatalogEntryDataTable().WithRow(3, "CODE3", "foo3"));
+            var writer = new Mock<IOperationsWriter>();
+            var added = new List<IEntity>();
+            writer.Setup(w => w.Add(It.IsAny<IEntity>())).Callback<IEntity>(added.Add);
+            var builder = Builder();
+            builder.Register(c => loaderPlugin.Object);
+            builder.Register(c => writer.Object);
+            var container = builder.Build();
+
+            container.Resolve<ProductIndexBuilder>().Build(true);
+
+            CollectionAssert.AreEquivalent(new[] {"CODE1_sv_SE", "CODE2_sv_SE", "CODE3_sv_SE"}, added.Select(x => x.Key.Value));
+        }
 
         private static ContainerBuilder Builder()
         {
@@ -331,6 +350,7 @@ namespace ESales.EPiServer.Tests
             builder.RegisterType<ProductIndexBuilder>();
             builder.RegisterType<EntryConverter>();
             builder.RegisterType<CatalogEntryProviderFactory>();
+            builder.RegisterType<DefaultModifiedCatalogEntryLoader>().As<IModifiedCatalogEntryLoader>();
             builder.Register( c => catalogSystem.Object );
             builder.Register( c => metaData.Object );
             builder.Register( c => priceService.Object );
