@@ -2,17 +2,24 @@ using Apptus.ESales.EPiServer.Import.Products;
 
 namespace Apptus.ESales.EPiServer.DataAccess
 {
-    internal static class CatalogEntryProviderFactory
+    internal class CatalogEntryProviderFactory
     {
-        public static ICatalogEntryProvider Create( bool incremental, int catalogId, ESalesVariantHelper eSalesVariantHelper, ICatalogSystemMapper catalogSystemMapper,
-                                             IIndexSystemMapper indexSystemMapper )
+        private readonly ICatalogSystemMapper _catalogSystemMapper;
+        private readonly IIndexSystemMapper _indexSystemMapper;
 
+        public CatalogEntryProviderFactory(ICatalogSystemMapper catalogSystemMapper, IIndexSystemMapper indexSystemMapper)
         {
-            if ( incremental )
+            _catalogSystemMapper = catalogSystemMapper;
+            _indexSystemMapper = indexSystemMapper;
+        }
+
+        public ICatalogEntryProvider Create(bool incremental, int catalogId, ESalesVariantHelper eSalesVariantHelper)
+        {
+            if (incremental)
             {
-                return new IncrementalCatalogEntryProvider( catalogId, eSalesVariantHelper, catalogSystemMapper, indexSystemMapper );
+                return new IncrementalCatalogEntryProvider(catalogId, eSalesVariantHelper, _catalogSystemMapper, _indexSystemMapper);
             }
-            return new FullCatalogEntryProvider( catalogId, catalogSystemMapper );
+            return new FullCatalogEntryProvider(catalogId, _catalogSystemMapper);
         }
     }
 }

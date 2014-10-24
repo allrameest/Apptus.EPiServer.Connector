@@ -124,6 +124,7 @@ namespace Apptus.ESales.EPiServer.Import
             builder.RegisterType<ESalesIndexBuilder>().InstancePerLifetimeScope();
             builder.RegisterType<UrlResolver>().As<IUrlResolver>();
             builder.RegisterType<EntryAdditionalData>().As<IEntryAdditionalData>();
+            builder.RegisterType<CatalogEntryProviderFactory>();
 
             RegisterPlugins( builder );
 

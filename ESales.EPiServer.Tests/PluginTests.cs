@@ -330,6 +330,7 @@ namespace ESales.EPiServer.Tests
             var builder = new ContainerBuilder();
             builder.RegisterType<ProductIndexBuilder>();
             builder.RegisterType<EntryConverter>();
+            builder.RegisterType<CatalogEntryProviderFactory>();
             builder.Register( c => catalogSystem.Object );
             builder.Register( c => metaData.Object );
             builder.Register( c => priceService.Object );

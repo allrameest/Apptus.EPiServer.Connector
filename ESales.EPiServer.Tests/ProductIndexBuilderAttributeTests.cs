@@ -79,6 +79,7 @@ namespace ESales.EPiServer.Tests
             builder.Register( c => priceService.Object );
             builder.Register( c => entryAdditionalData.Object );
             builder.RegisterType<EntryConverter>();
+            builder.RegisterType<CatalogEntryProviderFactory>();
             builder.Register( c => new PromotionEntryCodeProvider( c.Resolve<PromotionDataTableMapper>(), Enumerable.Empty<IPromotionEntryCodes>() ) );
             builder.Register( c => new PromotionDataTableMapper(
                                        new PromotionDto.PromotionLanguageDataTable(),

@@ -17,13 +17,15 @@ namespace Apptus.ESales.EPiServer.Import.Products
         private readonly IKeyLookup _keyLookup;
         private readonly EntryConverter _entryConverter;
         private readonly IOperationsWriter _writer;
+        private readonly CatalogEntryProviderFactory _catalogEntryProviderFactory;
         private readonly IProductConverter _converterPlugin;
         private readonly IProductsAppender _appenderPlugin;
         private Progress _progress;
 
-        public ProductIndexBuilder( IAppConfig appConfig, ICatalogSystemMapper catalogSystem, IIndexSystemMapper indexSystem, IKeyLookup keyLookup,
-                                    EntryConverter entryConverter, IOperationsWriter writer, IProductConverter converterPlugin = null,
-                                    IProductsAppender appenderPlugin = null )
+        public ProductIndexBuilder(
+            IAppConfig appConfig, ICatalogSystemMapper catalogSystem, IIndexSystemMapper indexSystem, IKeyLookup keyLookup,
+            EntryConverter entryConverter, IOperationsWriter writer, CatalogEntryProviderFactory catalogEntryProviderFactory,
+            IProductConverter converterPlugin = null, IProductsAppender appenderPlugin = null)
         {
             _appConfig = appConfig;
             _catalogSystem = catalogSystem;
@@ -31,6 +33,7 @@ namespace Apptus.ESales.EPiServer.Import.Products
             _keyLookup = keyLookup;
             _entryConverter = entryConverter;
             _writer = writer;
+            _catalogEntryProviderFactory = catalogEntryProviderFactory;
             _converterPlugin = converterPlugin;
             _appenderPlugin = appenderPlugin;
         }
@@ -77,7 +80,7 @@ namespace Apptus.ESales.EPiServer.Import.Products
         private void WriteDocuments( CatalogDto.CatalogRow catalog, string[] languages )
         {
             var variantHelper = new ESalesVariantHelper( GetRelations( catalog.CatalogId ) );
-            var catalogEntryProvider = CatalogEntryProviderFactory.Create( _incremental, catalog.CatalogId, variantHelper, _catalogSystem, _indexSystem );
+            var catalogEntryProvider = _catalogEntryProviderFactory.Create(_incremental, catalog.CatalogId, variantHelper);
             _progress.TotalNbrOfEntries = catalogEntryProvider.Count;
             var firstCatalogEntryId = int.MaxValue;
             var lastCatalogEntryId = int.MinValue;
