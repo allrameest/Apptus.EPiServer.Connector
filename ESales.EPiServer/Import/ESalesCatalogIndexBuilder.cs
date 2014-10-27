@@ -18,7 +18,7 @@ namespace Apptus.ESales.EPiServer.Import
     /// <summary>
     /// A catalog index builder that can be used for eSales.
     /// </summary>
-    public class ESalesCatalogIndexBuilder : ISearchIndexBuilder, IIndexLogger
+    public class ESalesCatalogIndexBuilder : ISearchIndexBuilder, IIndexLogger, IDisposable
     {
         private static readonly object BuildKey = new object();
         private static DateTime _lastRun = DateTime.MinValue;
@@ -145,6 +145,13 @@ namespace Apptus.ESales.EPiServer.Import
             builder.RegisterAssemblyTypes( assemblies ).As<IAdConverter>().InstancePerLifetimeScope();
             builder.RegisterAssemblyTypes( assemblies ).As<IProductsAppender>().InstancePerLifetimeScope();
             builder.RegisterAssemblyTypes( assemblies ).As<IAdsAppender>().InstancePerLifetimeScope();
+        }
+
+        public void Dispose()
+        {
+            if (_container == null) return;
+            _container.Dispose();
+            _container = null;
         }
     }
 }
