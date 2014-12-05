@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<panels>
+    <panel name="/search-provider-panels/commerce-standard-search" public="true">
+        <definition>
+            <container ordinal="1" role="/">
+                <settings>
+                    <order>static</order>
+                    <size_limit>0</size_limit>
+                </settings>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Commerce Standard Search</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value></value>
+                    </attribute>
+                    <attribute>
+                        <name>display_header</name>
+                        <value></value>
+                    </attribute>
+                </attributes>
+                <subpanels>
+                    <reference ordinal="1" role="search-results">
+                        <name>/esales/search/search-hits-with-count</name>
+                        <settings>
+                            <order>static</order>
+                            <size_limit>0</size_limit>
+                        </settings>
+                        <arguments/>
+                        <attributes>
+                            <attribute>
+                                <name>display_name</name>
+                                <value>Search Results</value>
+                            </attribute>
+                            <attribute>
+                                <name>description</name>
+                                <value>A zone panel with a window of search hits and a total hit count.</value>
+                            </attribute>
+                            <attribute>
+                                <name>display_header</name>
+                                <value></value>
+                            </attribute>
+                        </attributes>
+                    </reference>
+                    <reference ordinal="2" role="facets">
+                        <name>/esales/navigate/multiple-facets</name>
+                        <settings>
+                            <order>static</order>
+                            <size_limit>0</size_limit>
+                        </settings>
+                        <arguments/>
+                        <attributes>
+                            <attribute>
+                                <name>display_name</name>
+                                <value>Facets</value>
+                            </attribute>
+                            <attribute>
+                                <name>description</name>
+                                <value>Lists values for several filter attributes, which can be used in a filter to refine the search.</value>
+                            </attribute>
+                            <attribute>
+                                <name>display_header</name>
+                                <value></value>
+                            </attribute>
+                        </attributes>
+                    </reference>
+                </subpanels>
+            </container>
+        </definition>
+    </panel>
+    <panel name="/esales/ad/ad-information" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/ad_information</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Ad Information</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Displays information for one or more specified ads.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/ad/ads-by-products" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/ads_by_products</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Ads by Products</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Ads associated with the specified products.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/ad/ads-by-search" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/ads_by_search</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Ads by Search</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Ads associated with the specified search phrase.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/customer/abandoned-carts" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/abandoned_carts</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Abandoned Carts</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Products that the visitor has added to a cart which didn’t lead to any purchase.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/customer/recent-searches" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/recent_searches</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Recent Searches</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Searches that the visitor has recently done on the site.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/customer/recently-viewed" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/recently_viewed</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Recently Viewed</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Products that the visitor has recently viewed on the site.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/search/search-hits" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/search</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>report_tag</name>
+                        <value>search</value>
+                    </attribute>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Search Hits</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Displays a window of search hits from a query.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/search/search-hit-count" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/search_count</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Search Hit Count</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Displays the total number of hits from a search query.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/search/did-you-mean" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/did_you_mean</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Did You Mean</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Suggests spelling-corrected search phrases.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/search/autocomplete" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/auto_complete</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Autocomplete</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Suggests complete search phrases for the search box.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/navigate/facet" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/facet_values</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Facet</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Lists values for a filter attribute, which can be used in a filter to refine the search.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/navigate/facet-count" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/facet_count</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Facet Count</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Displays the total number of values for a filter attribute.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/navigate/multiple-facets" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/multiple_facets</name>
+                <settings>
+                    <order>static</order>
+                    <size_limit>0</size_limit>
+                </settings>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Multiple Facets</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Lists values for several filter attributes, which can be used in a filter to refine the search.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/navigate/product-list" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/product_list</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Product List</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Displays a list of products and is intended to be used for static searches.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/product/product-information" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/get_content</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Product Information</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Displays information for one or more specified products.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/navigate/top-sellers" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/top_sellers</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Top Sellers</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Lists the most sold products right now.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/navigate/top-searches" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/top_searches</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Top Searches</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Lists the most popular searches.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/product/those-who-bought-also-bought" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/those_who_bought_also_bought</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Those Who Bought Also Bought</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Displays products purchased by others who also purchased a specified product.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/product/those-who-viewed-also-viewed" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/those_who_viewed_also_viewed</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Those Who Viewed Also Viewed</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Displays products that was viewed immediately after viewing a specified product.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/product/those-who-viewed-bought" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/those_who_viewed_bought</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Those Who Viewed Bought</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Displays products that was purchased after viewing a specified product.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/recommend/recommend-based-on-cart" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/recommend_based_on_cart</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>report_tag</name>
+                        <value>recommendation</value>
+                    </attribute>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Recommend Based on Cart</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Products that the visitor might want to buy, given the content of the shopping cart.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/recommend/recommend-based-on-customer" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/recommend_based_on_customer</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>report_tag</name>
+                        <value>recommendation</value>
+                    </attribute>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Recommend Based on Customer</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Products that a specific customer might want to buy.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/recommend/recommend-based-on-product" public="false" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/native/recommend_based_on_product</name>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>report_tag</name>
+                        <value>recommendation</value>
+                    </attribute>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Recommend Based on Product</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Products that the visitor might want to buy, after viewing a specified product.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <panel name="/esales/search/search-hits-with-count" public="false" read_only="true">
+        <definition>
+            <container ordinal="1" role="/">
+                <settings>
+                    <order>static</order>
+                    <size_limit>2</size_limit>
+                </settings>
+                <arguments/>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Search Hits with Count</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>A zone panel with a window of search hits and a total hit count.</value>
+                    </attribute>
+                </attributes>
+                <subpanels>
+                    <reference ordinal="1" role="search-hit-count">
+                        <name>/esales/search/search-hit-count</name>
+                        <arguments/>
+                        <attributes>
+                            <attribute>
+                                <name>display_name</name>
+                                <value>Search Hit Count</value>
+                            </attribute>
+                        </attributes>
+                    </reference>
+                    <reference ordinal="2" role="search-hits">
+                        <name>/esales/search/search-hits</name>
+                        <arguments/>
+                        <attributes>
+                            <attribute>
+                                <name>display_name</name>
+                                <value>Search Hits</value>
+                            </attribute>
+                        </attributes>
+                    </reference>
+                </subpanels>
+            </container>
+        </definition>
+    </panel>
+    <panel name="/search-provider-panels/key-lookup" public="true" read_only="true">
+        <definition>
+            <reference ordinal="1" role="/">
+                <name>/esales/navigate/product-list</name>
+                <arguments>
+                    <argument>
+                        <name>facets</name>
+                        <value></value>
+                    </argument>
+                    <argument>
+                        <name>filter</name>
+                        <value>_id:'${id}' AND locale_filter:'${locale_filter}'</value>
+                    </argument>
+                    <argument>
+                        <name>locale</name>
+                        <value></value>
+                    </argument>
+                    <argument>
+                        <name>search_attributes</name>
+                        <value></value>
+                    </argument>
+                    <argument>
+                        <name>search_phrase</name>
+                        <value></value>
+                    </argument>
+                    <argument>
+                        <name>sort_by</name>
+                        <value></value>
+                    </argument>
+                    <argument>
+                        <name>presentation_attributes</name>
+                        <value></value>
+                    </argument>
+                    <argument>
+                        <name>session_key</name>
+                        <value>TEST</value>
+                    </argument>
+                    <argument>
+                        <name>window_first</name>
+                        <value>1</value>
+                    </argument>
+                    <argument>
+                        <name>window_last</name>
+                        <value>1</value>
+                    </argument>
+                </arguments>
+                <attributes>
+                    <attribute>
+                        <name>display_name</name>
+                        <value>Key Lookup</value>
+                    </attribute>
+                    <attribute>
+                        <name>description</name>
+                        <value>Displays the product_key for a specific _id and locale_filter.</value>
+                    </attribute>
+                </attributes>
+            </reference>
+        </definition>
+    </panel>
+    <folder name="/search-provider-panels">
+        <attributes>
+            <attribute>
+                <name>display_name</name>
+                <value>Search Provider Panels</value>
+            </attribute>
+        </attributes>
+    </folder>
+    <folder name="/"/>
+    <folder name="/esales" read_only="true">
+        <attributes>
+            <attribute>
+                <name>display_name</name>
+                <value>eSales</value>
+            </attribute>
+        </attributes>
+    </folder>
+    <folder name="/esales/ad" read_only="true">
+        <attributes>
+            <attribute>
+                <name>display_name</name>
+                <value>Ad</value>
+            </attribute>
+        </attributes>
+    </folder>
+    <folder name="/esales/customer" read_only="true">
+        <attributes>
+            <attribute>
+                <name>display_name</name>
+                <value>Customer</value>
+            </attribute>
+        </attributes>
+    </folder>
+    <folder name="/esales/navigate" read_only="true">
+        <attributes>
+            <attribute>
+                <name>display_name</name>
+                <value>Navigate</value>
+            </attribute>
+        </attributes>
+    </folder>
+    <folder name="/esales/product" read_only="true">
+        <attributes>
+            <attribute>
+                <name>display_name</name>
+                <value>Product</value>
+            </attribute>
+        </attributes>
+    </folder>
+    <folder name="/esales/recommend" read_only="true">
+        <attributes>
+            <attribute>
+                <name>display_name</name>
+                <value>Recommend</value>
+            </attribute>
+        </attributes>
+    </folder>
+    <folder name="/esales/search" read_only="true">
+        <attributes>
+            <attribute>
+                <name>display_name</name>
+                <value>Search</value>
+            </attribute>
+        </attributes>
+    </folder>
+    <global_attribute name="display_header"/>
+</panels>
