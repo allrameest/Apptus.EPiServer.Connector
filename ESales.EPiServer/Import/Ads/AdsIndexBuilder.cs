@@ -16,11 +16,12 @@ namespace Apptus.ESales.EPiServer.Import.Ads
         private readonly PromotionEntryCodeProvider _promotionEntryCodeProvider;
         private readonly IIndexSystemMapper _indexSystem;
         private readonly IAdConverter _converterPlugin;
-        private readonly IAdsAppender _appenderPlugin;
+        private readonly IReadOnlyCollection<IAdsAppender> _appenderPlugins;
 
-        public AdsIndexBuilder( IAppConfig appConfig, IFileSystem fileSystem, FileHelper fileHelper, PromotionDataTableMapper dataTableMapper,
-                                PromotionEntryCodeProvider promotionEntryCodeProvider, IIndexSystemMapper indexSystem, IAdConverter converterPlugin = null,
-                                IAdsAppender appenderPlugin = null )
+        public AdsIndexBuilder(
+            IAppConfig appConfig, IFileSystem fileSystem, FileHelper fileHelper, PromotionDataTableMapper dataTableMapper,
+            PromotionEntryCodeProvider promotionEntryCodeProvider, IIndexSystemMapper indexSystem,
+            IEnumerable<IAdsAppender> appenderPlugins, IAdConverter converterPlugin = null)
         {
             _appConfig = appConfig;
             _fileSystem = fileSystem;
@@ -29,7 +30,7 @@ namespace Apptus.ESales.EPiServer.Import.Ads
             _promotionEntryCodeProvider = promotionEntryCodeProvider;
             _indexSystem = indexSystem;
             _converterPlugin = converterPlugin;
-            _appenderPlugin = appenderPlugin;
+            _appenderPlugins = appenderPlugins.ToArray();
         }
 
         public void Build(bool incremental)
@@ -62,17 +63,15 @@ namespace Apptus.ESales.EPiServer.Import.Ads
             }
         }
 
-        private IEnumerable<IEntity> UsePlugins( IEnumerable<IEntity> ads, bool incremental )
+        private IEnumerable<IEntity> UsePlugins(IEnumerable<IEntity> ads, bool incremental)
         {
-            if ( _converterPlugin != null )
+            if (_converterPlugin != null)
             {
-                ads = ads.Select( ad => _converterPlugin.Convert( ad ) );
+                ads = ads.Select(ad => _converterPlugin.Convert(ad));
             }
-            if ( _appenderPlugin != null )
-            {
-                ads = ads.Concat( _appenderPlugin.Append( incremental ) ?? new IEntity[0] );
-            }
-            return ads;
+
+            var adsToAppend = _appenderPlugins.SelectMany(a => a.Append(incremental));
+            return ads.Concat(adsToAppend);
         }
 
         private static IEnumerable<XElement> ConvertAdsToXml( IEnumerable<IEntity> ads )
